@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+
+  <style>
+    body {
+      background: #fafafa;
+      --valles-web-components-text-color: red;
+    }
+    body.opa .x {
+      min-height: 800px;
+    }
+  </style>
+
+  <script type="module">
+    import '../dist/index.js';
+  </script>
+</head>
+<body class="opa">
+
+  <vwc-app-layout>
+    <div slot="brand" style="background-color: cadetblue;">Hello</div>
+    <span slot="top-bar-start">Começo 1</span>
+    <span slot="top-bar-start">Começo 2</span>
+
+    <span slot="top-bar-middle">Meio</span>
+
+    <ul slot="aside-menu">
+      Menu 1
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+    </ul>
+    <ul slot="aside-menu">
+      Menu 2
+      <li>Item 1</li>
+      <li>Item 2</li>
+      <li>Item 3</li>
+      <li>Item 4</li>
+      <li>Item 5</li>
+      <li>Item 6</li>
+    </ul>
+
+    <span slot="footer">Hello footer</span>
+
+    <vwc-app-content title="Página de testes - principal">
+
+      <app></app>
+
+      <p>After app and script</p>
+
+      <valles-web-components title="Web Component direct in the body" counter="6" >
+        some more light-dom
+      </valles-web-components>
+
+    </vwc-app-content>
+
+    <vwc-app-content id="form-sample" title="Form fields components" no-back-button>
+    </vwc-app-content>
+
+    <vwc-app-content id="form-sample-2" title="Form fields components 2º behavior" no-back-button>
+    </vwc-app-content>
+
+    <vwc-app-content id="form-sample-3" title="Form fields components 3º demo" no-back-button>
+    </vwc-app-content>
+
+    <div style="width: 80%; margin-left: 10%; margin-top: 5px;">
+      <vwc-bar shadow>
+        <span slot="start">Começo 1</span>
+        <span slot="start">Começo 2</span>
+        <span slot="middle">Meio 1</span>
+        <span slot="middle">Meio 2</span>
+        <span slot="middle">Meio 3</span>
+        <span slot="end">Fim 1</span>
+        <span slot="end">Fim 2</span>
+        <span slot="end">Fim 3</span>
+        <span slot="end">Fim 4</span>
+      </vwc-bar>
+    </div>
+
+    <vwc-flex-content>
+      <vwc-elevation z="8" style="margin: 5px; padding: 5px;">
+        <div style="width: 200px; height: 100px;"></div>
+      </vwc-elevation>
+      <vwc-elevation z="8" style="margin: 5px; padding: 5px;">
+        <div style="width: 200px; height: 100px;"></div>
+      </vwc-elevation>
+      <vwc-elevation z="8" style="margin: 5px; padding: 5px;">
+        <div style="width: 200px; height: 100px;"></div>
+      </vwc-elevation>
+      <vwc-elevation z="8" style="margin: 5px; padding: 5px;">
+        <div style="width: 200px; height: 100px;"></div>
+      </vwc-elevation>
+    </vwc-flex-content>
+
+    <vwc-flex-content center>
+      <vwc-elevation z="8" style="margin: 5px; padding: 5px;">
+        <div style="width: 200px; height: 100px;"></div>
+      </vwc-elevation>
+      <vwc-elevation z="8" style="margin: 5px; padding: 5px;">
+        <div style="width: 200px; height: 100px;"></div>
+      </vwc-elevation>
+      <vwc-elevation z="8" style="margin: 5px; padding: 5px;">
+        <div style="width: 200px; height: 100px;"></div>
+      </vwc-elevation>
+      <vwc-elevation z="8" style="margin: 5px; padding: 5px;">
+        <div style="width: 200px; height: 100px;"></div>
+      </vwc-elevation>
+    </vwc-flex-content>
+
+    <vwc-flex-content justify>
+      <vwc-elevation z="8" style="margin: 5px; padding: 5px;">
+        <div style="width: 200px; height: 100px;"></div>
+      </vwc-elevation>
+      <vwc-elevation z="8" style="margin: 5px; padding: 5px;">
+        <div style="width: 200px; height: 100px;"></div>
+      </vwc-elevation>
+      <vwc-elevation z="8" style="margin: 5px; padding: 5px;">
+        <div style="width: 200px; height: 100px;"></div>
+      </vwc-elevation>
+      <vwc-elevation z="8" style="margin: 5px; padding: 5px;">
+        <div style="width: 200px; height: 100px;"></div>
+      </vwc-elevation>
+    </vwc-flex-content>
+
+    <p>Last long box</p>
+
+    <div class="x" style="margin: 10px; padding: 10px 0 10px 10px; border: 1px solid red;" fluid>
+      <button onclick="toggleOpen();">Click</button>
+    </div>
+
+  </vwc-app-layout>
+
+  <script type="module">
+    import { html, render } from 'lit-html';
+    import '../dist/valles-web-components.js';
+
+    var entrou = false;
+
+    const title = 'Hello World Valles Web Components!';
+    render(
+      html`
+        <valles-web-components title=${title} counter=0 >
+          some more light-dom
+        </valles-web-components>
+      `,
+      document.querySelector('app')
+    );
+
+    var layout = document.querySelector('vwc-app-layout');
+    layout.addEventListener('vwc-search', function(e) { console.log(e.detail.value) });
+    layout.addEventListener('vwc-search-key-press', function(e) { console.log("key:" + e.detail.key + ", value: " + e.detail.value) });
+
+    var signInOutHandler = function(e) {
+      entrou = !entrou;
+      var topBar = layout.topBar;
+      if (entrou) {
+        topBar.userName = "Glauco Knihs";
+        topBar.userId = "44478";
+        topBar.userEmail = "eglauko@hotmail.com"
+      } else {
+        topBar.userName = "";
+        topBar.userId = "";
+        topBar.userEmail = ""
+      }
+    };
+
+    layout.addEventListener('vwc-sign-in-click', signInOutHandler);
+    layout.addEventListener('vwc-sign-out-click', signInOutHandler);
+  </script>
+
+  <script type="module">
+    import '../dist/samples.js';
+  </script>
+
+  <script>
+    function toggleOpen() {
+      document.getElementsByTagName('body')[0].classList.toggle('opa');
+    };
+  </script>
+
+</body>
+</html>

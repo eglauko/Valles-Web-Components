@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Example App</title>
+
+    <!-- Add support for Web Components to older browsers. -->
+    <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+
+    <script type="module" src="index.js"></script>
+
+    <!-- Your application must load the Roboto and Material Icons fonts. -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons&display=block" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Use Web Components in your HTML like regular built-in elements. -->
+    <mwc-button id="myButton" label="Click Me!" raised></mwc-button>
+
+    <!-- The Material Web Components use standard JavaScript modules. -->
+    <script type="module">
+      const button = document.querySelector('#myButton');
+      button.addEventListener('click', () => {
+        alert('You clicked!');
+      });
+    </script>
+  </body>
+</html>
